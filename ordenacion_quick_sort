@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+//arrays
+typedef int tv[10];
+
+//procedimiento
+void rapido(tv n,int iz,int de);
+main()
+{
+	tv num{7,2,8,3,1,9,6,4,5};
+	int o=8,k;
+	
+	rapido(num,0,o);
+	
+	for(k=0;k<=o;k++)
+	{
+		cout<<"En la posic ["<<k<<"] esta el num: "<<num[k]<<endl;
+	}
+}
+void rapido(tv n,int iz,int de)
+{
+	int i,j,p,a;
+	
+	i=iz;
+	j=de;
+	p=n[(i+j)/2];
+	
+	while(i<=j)
+	{
+		while(n[i]<p)
+		{
+			i++;
+		}
+		while(n[j]>p)
+		{
+			j--;
+		}
+		if(i<=j)
+		{
+			a=n[j];
+			n[j]=n[i];
+			n[i]=a;
+			i++;
+			j--;
+		}
+	}
+	
+	if(iz<j)
+	{
+		rapido(n,iz,j);
+	}
+	if(de>i)
+	{
+		rapido(n,i,de);
+	}
+}

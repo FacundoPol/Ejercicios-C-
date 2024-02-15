@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+const int m=10;
+
+typedef int tv [m];
+
+void cambio(tv n,int i);
+
+main()
+{
+	tv n{5,1,2,8,9,3,6,4,7};
+	int i,o=8,k;
+	bool c=false;
+	
+	while(c==false)
+	{
+		c=true;
+		for(i=0;i<=o-1;i++)
+		if(n[i]<n[i+1])
+		{
+			cambio(n,i);
+			c=false;
+		}
+	}
+	
+	for(k=0;k<=o;k++)
+	{
+		cout<<"En la posic ["<<k<<"] esta el num :"<<n[k]<<endl;
+	}
+}
+
+void cambio(tv n,int i)
+{
+	int a;
+	a=n[i];
+	n[i]=n[i+1];
+	n[i+1]=a;
+}

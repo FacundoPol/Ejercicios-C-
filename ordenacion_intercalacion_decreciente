@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+const int m=10;
+
+typedef int tv [m];
+typedef int tv2 [m];
+main()
+{
+	tv n1{3,5,7,9};
+	tv n2{1,2,4,6,8};
+	tv2 n;
+	int o1=3,o2=4,i=o1,j=o2,k=-1,o,f;
+	
+	while(0<=i && 0<=j)
+	{
+		if(n1[i]>n2[j])
+		{
+			k++;
+			n[k]=n1[i];
+			i--;
+		}else
+		{
+			k++;
+			n[k]=n2[j];
+			j--;
+		}
+	}
+	while(0<=i)
+	{
+		k++;
+		n[k]=n1[i];
+		i--;
+	}
+	while(0<=j)
+	{
+		k++;
+		n[k]=n2[j];
+		j--;
+	}
+	o=k;
+	for(f=0;f<=o;f++)
+	{
+		cout<<"En la posic ["<<f<<"] esta el num: "<<n[f]<<endl;
+	}
+}

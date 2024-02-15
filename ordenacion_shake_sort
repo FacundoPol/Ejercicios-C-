@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+typedef int tv [10];
+main()
+{
+	tv n{4,2,3,7,1,9,6,5,8};
+	bool c=false;
+	int i,p=0,o=8,u=o,a,k;
+	
+	while(c==false && p<u)
+	{
+		c=true;
+		for(i=u;i>=p+1;i--)
+		{
+			if(n[i]<n[i-1])
+			{
+				a=n[i-1];
+				n[i-1]=n[i];
+				n[i]=a;
+				c=false;
+			}
+		}
+		p++;
+		if(c==true)
+		{
+			c=true;
+			for(i=p;i<=u-1;i++)
+			{
+				if(n[i]<n[i-1])
+				{
+					a=n[i-1];
+					n[i-1]=n[i];
+					n[i]=a;
+					c=false;
+				}
+			}
+			u--;
+		}
+	}
+	
+	for(k=0;k<=o;k++)
+	{
+		cout<<"En la posicion ["<<k<<"] esta el num: "<<n[k]<<endl;
+	}
+}
